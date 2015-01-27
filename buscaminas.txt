@@ -1,0 +1,22 @@
+REGLAS
+
+1.-El juego consiste en despejar todas las casillas de una pantalla que no oculten una mina.
+
+2.-Algunas casillas tienen un número, este número indica las minas que suman todas las casillas circundantes.
+  Así, si una casilla tiene el número 3, significa que de las ocho casillas que hay alrededor (si no es en una esquina o borde) hay 3 con minas y 5 sin minas. 
+  Si se descubre una casilla sin número indica que ninguna de las casillas vecinas tiene mina y estas se descubren automáticamente.
+
+3.-Si se descubre una casilla con una mina se pierde la partida.
+
+4.-Se puede poner una marca en las casillas que el jugador piensa que hay minas para ayudar a descubrir la que están cerca.
+
+5.-El juego también posee un sistema de récords para cada uno de los niveles.
+
+6.-También se puede personalizar la dificultad de juego según el tamaño de la pantalla y el número de minas.
+
+
+ELEMENTOS
+
+1.-No siempre se puede resolver sin recurrir a la suerte.
+
+2.-Las probabilidades de descubrir una mina no son suficientes
