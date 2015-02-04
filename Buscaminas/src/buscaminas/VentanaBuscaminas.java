@@ -10,7 +10,9 @@ package buscaminas;
  *
  * @author certificacion8
  */
-public class VentanaBuscaminas extends javax.swing.JFrame {
+public class VentanaBuscaminas extends javax.swing.JFrame implements Runnable{
+    Thread timer;
+    float tiempo;
 
     /**
      * Creates new form VentanaBuscaminas
@@ -29,7 +31,7 @@ public class VentanaBuscaminas extends javax.swing.JFrame {
     private void initComponents() {
 
         MarcadorTiempo = new javax.swing.JTextField();
-        MarcadorMinas = new javax.swing.JTextField();
+        txtTiempo = new javax.swing.JTextField();
         b1 = new javax.swing.JButton();
         b2 = new javax.swing.JButton();
         b3 = new javax.swing.JButton();
@@ -59,9 +61,9 @@ public class VentanaBuscaminas extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        MarcadorMinas.addActionListener(new java.awt.event.ActionListener() {
+        txtTiempo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MarcadorMinasActionPerformed(evt);
+                txtTiempoActionPerformed(evt);
             }
         });
 
@@ -134,7 +136,7 @@ public class VentanaBuscaminas extends javax.swing.JFrame {
                                     .addComponent(b26, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(MarcadorMinas)
+                                .addComponent(txtTiempo)
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(b4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -148,7 +150,7 @@ public class VentanaBuscaminas extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(MarcadorTiempo, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(MarcadorMinas, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtTiempo, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(b26, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -191,9 +193,9 @@ public class VentanaBuscaminas extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void MarcadorMinasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MarcadorMinasActionPerformed
+    private void txtTiempoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTiempoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_MarcadorMinasActionPerformed
+    }//GEN-LAST:event_txtTiempoActionPerformed
 
     private void b26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b26ActionPerformed
         // TODO add your handling code here:
@@ -229,13 +231,20 @@ public class VentanaBuscaminas extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VentanaBuscaminas().setVisible(true);
+                while(true){
+                tiempo++;
+                txtTiempo.setText(""+tiempo);
+                try{
+                thread.sleep(1000);
+                } catch (Exception ex) {
+               }
             }
+                new VentanaBuscaminas().setVisible(true);
+            
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField MarcadorMinas;
     private javax.swing.JTextField MarcadorTiempo;
     private javax.swing.JButton b1;
     private javax.swing.JButton b10;
@@ -263,5 +272,11 @@ public class VentanaBuscaminas extends javax.swing.JFrame {
     private javax.swing.JButton b7;
     private javax.swing.JButton b8;
     private javax.swing.JButton b9;
+    private javax.swing.JTextField txtTiempo;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void run() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

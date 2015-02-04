@@ -10,7 +10,7 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 import java.awt.Insets;
  
-public class Frame extends JFrame {
+public class Frame extends JFrame  {
   private JPanel jPanel1 = new JPanel();
   private JButton jButton1 = new JButton();
   private int ancho=7;
